@@ -38,12 +38,6 @@ public final class AutoProduccionManager {
 
 
 
-
-
-
-
-
-
     productoObjetivo = producto;
     premium = premiumSolicitado;
     intervaloMs = Math.max(1000L, intervaloSegundos * 1000L);
