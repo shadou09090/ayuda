@@ -345,7 +345,7 @@ public final class ClienteBolsa implements EventListener {
     }
   }
 
-  Product resolverProducto(String nombre) throws ProductoNoAutorizadoException {
+  public Product resolverProducto(String nombre) throws ProductoNoAutorizadoException {
     if (nombre == null || nombre.isBlank()) {
       throw new ProductoNoAutorizadoException("Debes indicar un producto.");
     }
