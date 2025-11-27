@@ -1,0 +1,260 @@
+{
+  "AVOCULTORES": {
+    "PALTA-OIL": {
+      "producto": "PALTA-OIL",
+      "ingredientes": null,
+      "bonusPremium": 1.0
+    },
+    "GUACA": {
+      "producto": "GUACA",
+      "ingredientes": {
+        "FOSFO": 5,
+        "PITA": 3
+      },
+      "bonusPremium": 1.3
+    },
+    "SEBO": {
+      "producto": "SEBO",
+      "ingredientes": {
+        "NUCREM": 8
+      },
+      "bonusPremium": 1.3
+    }
+  },
+  "MONJESDEFOSFORESCENCIA": {
+    "FOSFO": {
+      "producto": "FOSFO",
+      "ingredientes": null,
+      "bonusPremium": 1.0
+    },
+    "GUACA": {
+      "producto": "GUACA",
+      "ingredientes": {
+        "PALTA-OIL": 5,
+        "PITA": 3
+      },
+      "bonusPremium": 1.3
+    },
+    "NUCREM": {
+      "producto": "NUCREM",
+      "ingredientes": {
+        "SEBO": 6
+      },
+      "bonusPremium": 1.3
+    }
+  },
+  "COSECHADORESDEPITA": {
+    "PITA": {
+      "producto": "PITA",
+      "ingredientes": null,
+      "bonusPremium": 1.0
+    },
+    "SEBO": {
+      "producto": "SEBO",
+      "ingredientes": {
+        "NUCREM": 8
+      },
+      "bonusPremium": 1.3
+    },
+    "CASCAR-ALLOY": {
+      "producto": "CASCAR-ALLOY",
+      "ingredientes": {
+        "FOSFO": 10
+      },
+      "bonusPremium": 1.3
+    }
+  },
+  "HERREROSCOSMICOS": {
+    "CASCAR-ALLOY": {
+      "producto": "CASCAR-ALLOY",
+      "ingredientes": null,
+      "bonusPremium": 1.0
+    },
+    "QUANTUM-PULP": {
+      "producto": "QUANTUM-PULP",
+      "ingredientes": {
+        "PALTA-OIL": 7
+      },
+      "bonusPremium": 1.3
+    },
+    "SKIN-WRAP": {
+      "producto": "SKIN-WRAP",
+      "ingredientes": {
+        "ASTRO-BUTTER": 12
+      },
+      "bonusPremium": 1.3
+    }
+  },
+  "EXTRACTORES": {
+    "QUANTUM-PULP": {
+      "producto": "QUANTUM-PULP",
+      "ingredientes": null,
+      "bonusPremium": 1.0
+    },
+    "NUCREM": {
+      "producto": "NUCREM",
+      "ingredientes": {
+        "SEBO": 6
+      },
+      "bonusPremium": 1.3
+    },
+    "FOSFO": {
+      "producto": "FOSFO",
+      "ingredientes": {
+        "SKIN-WRAP": 9
+      },
+      "bonusPremium": 1.3
+    }
+  },
+  "TEJEMANTELES": {
+    "SKIN-WRAP": {
+      "producto": "SKIN-WRAP",
+      "ingredientes": null,
+      "bonusPremium": 1.0
+    },
+    "PITA": {
+      "producto": "PITA",
+      "ingredientes": {
+        "CASCAR-ALLOY": 8
+      },
+      "bonusPremium": 1.3
+    },
+    "ASTRO-BUTTER": {
+      "producto": "ASTRO-BUTTER",
+      "ingredientes": {
+        "GUACA": 10
+      },
+      "bonusPremium": 1.3
+    }
+  },
+  "CREMEROSASTRALES": {
+    "ASTRO-BUTTER": {
+      "producto": "ASTRO-BUTTER",
+      "ingredientes": null,
+      "bonusPremium": 1.0
+    },
+    "CASCAR-ALLOY": {
+      "producto": "CASCAR-ALLOY",
+      "ingredientes": {
+        "FOSFO": 10
+      },
+      "bonusPremium": 1.3
+    },
+    "PALTA-OIL": {
+      "producto": "PALTA-OIL",
+      "ingredientes": {
+        "QUANTUM-PULP": 7
+      },
+      "bonusPremium": 1.3
+    }
+  },
+  "MINEROSDELSEBO": {
+    "SEBO": {
+      "producto": "SEBO",
+      "ingredientes": null,
+      "bonusPremium": 1.0
+    },
+    "ASTRO-BUTTER": {
+      "producto": "ASTRO-BUTTER",
+      "ingredientes": {
+        "GUACA": 10
+      },
+      "bonusPremium": 1.3
+    },
+    "GUACA": {
+      "producto": "GUACA",
+      "ingredientes": {
+        "PALTA-OIL": 5,
+        "PITA": 3
+      },
+      "bonusPremium": 1.3
+    }
+  },
+  "NUCLEOCREMERO": {
+    "NUCREM": {
+      "producto": "NUCREM",
+      "ingredientes": null,
+      "bonusPremium": 1.0
+    },
+    "SKIN-WRAP": {
+      "producto": "SKIN-WRAP",
+      "ingredientes": {
+        "ASTRO-BUTTER": 12
+      },
+      "bonusPremium": 1.3
+    },
+    "QUANTUM-PULP": {
+      "producto": "QUANTUM-PULP",
+      "ingredientes": {
+        "PALTA-OIL": 7
+      },
+      "bonusPremium": 1.3
+    }
+  },
+  "DESTILADORES": {
+    "GUACA": {
+      "producto": "GUACA",
+      "ingredientes": null,
+      "bonusPremium": 1.0
+    },
+    "PALTA-OIL": {
+      "producto": "PALTA-OIL",
+      "ingredientes": {
+        "QUANTUM-PULP": 7
+      },
+      "bonusPremium": 1.3
+    },
+    "FOSFO": {
+      "producto": "FOSFO",
+      "ingredientes": {
+        "SKIN-WRAP": 9
+      },
+      "bonusPremium": 1.3
+    }
+  },
+  "CARTOGRAFOS": {
+    "GUACA": {
+      "producto": "GUACA",
+      "ingredientes": null,
+      "bonusPremium": 1.0
+    },
+    "NUCREM": {
+      "producto": "NUCREM",
+      "ingredientes": {
+        "SEBO": 6
+      },
+      "bonusPremium": 1.3
+    },
+    "PITA": {
+      "producto": "PITA",
+      "ingredientes": {
+        "CASCAR-ALLOY": 8
+      },
+      "bonusPremium": 1.3
+    }
+  },
+  "SOMELIERSANDORIANOS": {
+    "PALTA-OIL": {
+      "producto": "PALTA-OIL",
+      "ingredientes": null,
+      "bonusPremium": 1.0
+    },
+    "SEBO": {
+      "producto": "SEBO",
+      "ingredientes": {
+        "NUCREM": 8
+      },
+      "bonusPremium": 1.3
+    },
+    "CASCAR-ALLOY": {
+      "producto": "CASCAR-ALLOY",
+      "ingredientes": {
+        "FOSFO": 10
+      },
+      "bonusPremium": 1.3
+    }
+  }
+}
+
+
+

@@ -1,0 +1,6 @@
+<application>
+  <component name="ExternalDependencies">
+    <plugin id="com.intellij.gradle" />
+  </component>
+</application>
+

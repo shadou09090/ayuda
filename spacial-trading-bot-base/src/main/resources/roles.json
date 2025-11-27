@@ -1,0 +1,89 @@
+{
+  "AVOCULTORES": {
+    "maxDepth": 6,
+    "baseEnergy": 9.0,
+    "levelEnergy": 1.8,
+    "decay": 0.78,
+    "branches": 2.2
+  },
+  "MONJESDEFOSFORESCENCIA": {
+    "maxDepth": 6,
+    "baseEnergy": 8.5,
+    "levelEnergy": 1.6,
+    "decay": 0.8,
+    "branches": 2.0
+  },
+  "COSECHADORESDEPITA": {
+    "maxDepth": 5,
+    "baseEnergy": 7.5,
+    "levelEnergy": 1.7,
+    "decay": 0.82,
+    "branches": 2.3
+  },
+  "HERREROSCOSMICOS": {
+    "maxDepth": 7,
+    "baseEnergy": 9.8,
+    "levelEnergy": 2.0,
+    "decay": 0.76,
+    "branches": 2.1
+  },
+  "EXTRACTORES": {
+    "maxDepth": 5,
+    "baseEnergy": 8.2,
+    "levelEnergy": 1.5,
+    "decay": 0.79,
+    "branches": 2.4
+  },
+  "TEJEMANTELES": {
+    "maxDepth": 5,
+    "baseEnergy": 7.8,
+    "levelEnergy": 1.4,
+    "decay": 0.81,
+    "branches": 2.0
+  },
+  "CREMEROSASTRALES": {
+    "maxDepth": 6,
+    "baseEnergy": 8.9,
+    "levelEnergy": 1.9,
+    "decay": 0.77,
+    "branches": 2.2
+  },
+  "MINEROSDELSEBO": {
+    "maxDepth": 5,
+    "baseEnergy": 8.0,
+    "levelEnergy": 1.5,
+    "decay": 0.8,
+    "branches": 2.1
+  },
+  "NUCLEOCREMERO": {
+    "maxDepth": 6,
+    "baseEnergy": 8.4,
+    "levelEnergy": 1.8,
+    "decay": 0.78,
+    "branches": 2.3
+  },
+  "DESTILADORES": {
+    "maxDepth": 6,
+    "baseEnergy": 8.7,
+    "levelEnergy": 1.7,
+    "decay": 0.79,
+    "branches": 2.0
+  },
+  "CARTOGRAFOS": {
+    "maxDepth": 5,
+    "baseEnergy": 7.9,
+    "levelEnergy": 1.6,
+    "decay": 0.8,
+    "branches": 2.2
+  },
+  "SOMELIERSANDORIANOS": {
+    "maxDepth": 6,
+    "baseEnergy": 9.2,
+    "levelEnergy": 1.9,
+    "decay": 0.77,
+    "branches": 2.1
+  }
+}
+
+
+
