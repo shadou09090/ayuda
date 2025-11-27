@@ -23,20 +23,13 @@ repositories {
 
 dependencies {
     // Hellsoft SDK - Ready when available
-    implementation("tech.hellsoft.trading:websocket-client:1.0.4")
-    
+    implementation("tech.hellsoft.trading:websocket-client:1.2.2")
+
     // GSON for JSON processing
     implementation("com.google.code.gson:gson:2.10.1")
 
     // SLF4J Simple Logger (fixes SDK logging warnings)
     implementation("org.slf4j:slf4j-simple:2.0.16")
-
-    // Yavi for validation
-    implementation("am.ik.yavi:yavi:0.13.0")
-
-    // Lombok for boilerplate reduction
-    compileOnly("org.projectlombok:lombok:1.18.40")
-    annotationProcessor("org.projectlombok:lombok:1.18.40")
 
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
