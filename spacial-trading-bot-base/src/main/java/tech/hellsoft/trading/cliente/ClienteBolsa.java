@@ -50,7 +50,7 @@ public final class ClienteBolsa implements EventListener {
     conector.addListener(this);
     try {
       conector.conectar(config.host(), config.apiKey());
-    } catch (tech.hellsoft.trading.exception.ConexionFallidaException e) {
+    } catch (ConexionFallidaException e) {
       throw new IllegalStateException("No se pudo conectar con la bolsa: " + e.getMessage(), e);
     }
   }
