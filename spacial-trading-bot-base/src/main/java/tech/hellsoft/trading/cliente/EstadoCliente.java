@@ -1,5 +1,6 @@
 package tech.hellsoft.trading.cliente;
 
+import java.util.stream.Collectors;
 import tech.hellsoft.trading.dto.local.RecetaLocal;
 import tech.hellsoft.trading.dto.local.TeamRoleLocal;
 import tech.hellsoft.trading.dto.server.Recipe;
@@ -94,11 +95,13 @@ public final class EstadoCliente implements Serializable {
     return copia;
   }
 
-  public Set<Product> productosAutorizados() {
-    return new HashSet<>(productosAutorizados);
-  }
+    public Set<String> productosAutorizadosComoTexto() {
+        return productosAutorizados.stream()
+                .map(Product::getValue)
+                .collect(Collectors.toSet());
+    }
 
-  public void registrarPrecio(Product producto, double mid) {
+    public void registrarPrecio(Product producto, double mid) {
     if (producto == null) {
       return;
     }

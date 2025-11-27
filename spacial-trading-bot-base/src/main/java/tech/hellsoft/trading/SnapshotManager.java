@@ -12,8 +12,7 @@ import java.io.*;
  */
 public final class SnapshotManager {
 
-  private SnapshotManager() {
-  }
+  private SnapshotManager() {}
 
   public static void guardar(EstadoCliente estado, File destino) throws ConfiguracionInvalidaException {
     if (estado == null) {
@@ -45,9 +44,15 @@ public final class SnapshotManager {
       if (data instanceof EstadoCliente) {
         return (EstadoCliente) data;
       }
-      throw new SnapshotCorruptoException("El archivo no contiene un EstadoCliente válido");
+        throw new SnapshotCorruptoException(
+                origen.getAbsolutePath(),
+                "El archivo no contiene un EstadoCliente válido"
+        );
     } catch (IOException | ClassNotFoundException e) {
-      throw new SnapshotCorruptoException("Error al leer snapshot: " + e.getMessage());
+        throw new SnapshotCorruptoException(
+                origen.getAbsolutePath(),
+                "El archivo no contiene un EstadoCliente válido"
+        );
     }
   }
 }

@@ -63,8 +63,7 @@ public final class ClienteBolsa implements EventListener {
 
     double costoEstimado = Math.max(estado.precioReferencia(producto), 1.0) * cantidad;
     if (estado.saldo() < costoEstimado) {
-      throw new SaldoInsuficienteException(
-          String.format("Saldo insuficiente. Requerido %.2f, disponible %.2f", costoEstimado, estado.saldo()));
+        throw new SaldoInsuficienteException(estado.saldo(), costoEstimado);
     }
 
     OrderMessage orden = construirOrden(producto, OrderSide.BUY, cantidad, mensaje, "Orden CLI");
@@ -80,7 +79,12 @@ public final class ClienteBolsa implements EventListener {
 
     int disponible = estado.cantidadDisponible(producto);
     if (disponible < cantidad) {
-      throw new InventarioInsuficienteException(String.format("Inventario insuficiente (%d disponibles)", disponible));
+        throw new InventarioInsuficienteException(
+                producto,
+                disponible,
+                cantidad
+        );
+
     }
 
     OrderMessage orden = construirOrden(producto, OrderSide.SELL, cantidad, mensaje, "Venta CLI");
@@ -102,14 +106,38 @@ public final class ClienteBolsa implements EventListener {
       }
     }
     if (receta == null) {
-      throw new RecetaNoEncontradaException("No existe receta para " + nombre(producto));
+        throw new RecetaNoEncontradaException(
+                "No existe receta para " + nombre(producto)
+        );
     }
 
-    if (premium && !RecetaValidator.puedeProducir(receta, estado.inventario())) {
-      throw new IngredientesInsuficientesException("No hay ingredientes suficientes para " + nombre(producto));
-    }
+      if (premium && !RecetaValidator.puedeProducir(receta, estado.inventario())) {
 
-    if (estado.rol() == null) {
+          // (1) Obtener ingredientes que requiere la receta
+          Map<Product, Integer> requeridos = receta.getIngredients();
+
+          // (2) Calcular faltantes
+          Map<Product, Integer> faltantes = new HashMap<>();
+
+          for (var entry : requeridos.entrySet()) {
+              Product ing = entry.getKey();
+              int requerido = entry.getValue();
+              int disponible = estado.cantidadDisponible(ing);
+
+              if (disponible < requerido) {
+                  faltantes.put(ing, requerido - disponible);
+              }
+          }
+
+          // (3) Lanzar la excepción con mensaje + faltantes
+          throw new IngredientesInsuficientesException(
+                  "Ingredientes insuficientes para producir " + nombre(producto),
+                  faltantes
+          );
+      }
+
+
+      if (estado.rol() == null) {
       throw new IllegalStateException("El rol aún no está disponible. Espera la confirmación de login.");
     }
 
@@ -141,8 +169,13 @@ public final class ClienteBolsa implements EventListener {
     Integer cantidadSolicitada = oferta.getQuantityRequested();
     int solicitada = cantidadSolicitada == null ? 0 : cantidadSolicitada;
     if (aceptar) {
-      if (estado.cantidadDisponible(producto) < solicitada) {
-        throw new InventarioInsuficienteException("No tienes inventario para aceptar la oferta");
+        int disponible = estado.cantidadDisponible(producto);
+        if (disponible < solicitada) {
+          throw new InventarioInsuficienteException(
+                  producto,
+                  disponible,
+                  solicitada
+          );
       }
       estado.restarInventario(producto, solicitada);
     }
@@ -333,32 +366,46 @@ public final class ClienteBolsa implements EventListener {
 
 
 
-  private void validarAutorizado(Product producto) throws ProductoNoAutorizadoException {
-    if (!estado.productoAutorizado(producto)) {
-      throw new ProductoNoAutorizadoException("Producto no autorizado: " + nombre(producto));
+    private void validarAutorizado(Product producto) throws ProductoNoAutorizadoException {
+        if (!estado.productoAutorizado(producto)) {
+            Set<String> permitidos = estado.productosAutorizadosComoTexto();
+            throw new ProductoNoAutorizadoException(
+                    nombre(producto),
+                    permitidos
+            );
+        }
     }
-  }
 
-  private void validarCantidad(int cantidad) {
+    private void validarCantidad(int cantidad) {
     if (cantidad <= 0) {
       throw new IllegalArgumentException("La cantidad debe ser positiva.");
     }
   }
 
-  public Product resolverProducto(String nombre) throws ProductoNoAutorizadoException {
-    if (nombre == null || nombre.isBlank()) {
-      throw new ProductoNoAutorizadoException("Debes indicar un producto.");
-    }
-    String normalizado = nombre.trim().toUpperCase().replace('-', '_').replace(' ', '_');
-    for (Product product : Product.values()) {
-      if (product.name().equalsIgnoreCase(normalizado) || product.getValue().equalsIgnoreCase(nombre.trim())) {
-        return product;
-      }
-    }
-    throw new ProductoNoAutorizadoException("Producto desconocido: " + nombre);
-  }
+    public Product resolverProducto(String nombre) throws ProductoNoAutorizadoException {
+        if (nombre == null || nombre.isBlank()) {
+            throw new ProductoNoAutorizadoException(
+                    "(vacío)",
+                    estado.productosAutorizadosComoTexto()
+            );
+        }
 
-  private String nombre(Product producto) {
+        String normalizado = nombre.trim().toUpperCase().replace('-', '_').replace(' ', '_');
+
+        for (Product product : Product.values()) {
+            if (product.name().equalsIgnoreCase(normalizado) ||
+                    product.getValue().equalsIgnoreCase(nombre.trim())) {
+                return product;
+            }
+        }
+
+        throw new ProductoNoAutorizadoException(
+                nombre,
+                estado.productosAutorizadosComoTexto()
+        );
+    }
+
+    private String nombre(Product producto) {
     return producto == null ? "N/D" : producto.getValue();
   }
 
