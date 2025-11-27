@@ -200,7 +200,7 @@ El archivo `Main.java` contiene un ejemplo **simple y minimal** que muestra cóm
 ### Estructura del Ejemplo
 
 ```java
-import tech.hellsoft.config.config.Configuration;
+import tech.hellsoft.trading.config.Configuration;
 
 public static void main(String[] args) {
     // 1️⃣ Cargar configuración (apiKey, team, host)
