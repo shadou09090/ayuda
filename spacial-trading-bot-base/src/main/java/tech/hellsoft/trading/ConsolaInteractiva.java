@@ -74,10 +74,60 @@ public final class ConsolaInteractiva {
         ejecutarVenta(partes);
         break;
       }
-      case "producir": {
-        ejecutarProduccion(partes);
-        break;
-      }
+          case "producir": {
+
+              int opcion1;
+              String producto = null;
+              String tipo = null;
+
+
+              do {
+                  System.out.println("¿Que quiere producir?");
+                  System.out.println("1) FOSFO\n2) GUACA\n3) H-GUACA\n4) PALTA-OIL\n5) PITA\n6) SEBO");
+                  opcion1 = scanner.nextInt();
+                  scanner.nextLine();
+
+                  switch (opcion1) {
+                      case 1: producto = "FOSFO"; break;
+                      case 2: producto = "GUACA"; break;
+                      case 3: producto = "H-GUACA"; break;
+                      case 4: producto = "PALTA-OIL"; break;
+                      case 5: producto = "PITA"; break;
+                      case 6: producto = "SEBO"; break;
+                      default:
+                          System.out.println(" Opción inválida.");
+                          continue;
+                  }
+
+              } while (producto == null);
+
+
+              do {
+                  System.out.println("¿Que tipo de producto quiere que sea?");
+                  System.out.println("1) básica\n2) premium");
+                  opcion1 = scanner.nextInt();
+                  scanner.nextLine();
+
+                  switch (opcion1) {
+                      case 1: tipo = "basica"; break;
+                      case 2: tipo = "premium"; break;
+                      default:
+                          System.out.println(" Opción inválida.");
+                          continue;
+                  }
+
+              } while (tipo == null);
+
+
+              String[] nuevasPartes = new String[] {
+                      "producir",
+                      producto,
+                      tipo
+              };
+
+              ejecutarProduccion(nuevasPartes);
+              break;
+          }
       case "ofertas": {
         imprimirOfertas();
         break;
@@ -103,12 +153,12 @@ public final class ConsolaInteractiva {
         break;
       }
       default: {
-        System.out.println("❌ Comando desconocido. Usa 'help' para ver opciones.");
+        System.out.println(" Comando desconocido. Usa 'help' para ver opciones.");
         break;
       }
       }
     } catch (Exception e) {
-      System.out.println("⚠️ " + e.getMessage());
+      System.out.println("todo mal pa " + e.getMessage());
     }
   }
 

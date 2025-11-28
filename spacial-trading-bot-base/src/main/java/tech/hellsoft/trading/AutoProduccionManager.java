@@ -34,10 +34,6 @@ public final class AutoProduccionManager {
     Product producto = cliente.resolverProducto(nombreProducto);
     detenerInterno();
 
-
-
-
-
     productoObjetivo = producto;
     premium = premiumSolicitado;
     intervaloMs = Math.max(1000L, intervaloSegundos * 1000L);
