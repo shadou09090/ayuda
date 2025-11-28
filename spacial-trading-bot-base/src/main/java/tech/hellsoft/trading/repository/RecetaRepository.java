@@ -177,16 +177,16 @@ public final class RecetaRepository {
       String equipoNormalizado = equipo.toUpperCase().replace(" ", "").replace("-", "").replace("DE", "")
           .replace("DEL", "").replace("LOS", "").replace("LAS", "");
       if (equipoNormalizado.contains("MINERO") && equipoNormalizado.contains("SEBO")) {
-        return "MINEROSDELSEBO";
+        return "sapos";
       }
       if (equipoNormalizado.contains("MINERO") && equipoNormalizado.contains("GUACATRON")) {
-        return "MINEROSDELSEBO";
+        return "sapos";
       }
     }
     if (especie != null && !especie.isBlank()) {
       String especieNormalizada = especie.toUpperCase().replace(" ", "").replace("-", "");
-      if ("PREMIUM".equals(especieNormalizada) || especieNormalizada.contains("MINERO")) {
-        return "MINEROSDELSEBO";
+      if ("PREMIUM".equals(especieNormalizada)) {
+        return "sapos";
       }
       return especieNormalizada;
     }
